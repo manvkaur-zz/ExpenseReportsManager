@@ -1,0 +1,35 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading"
+         style="font-size:large">
+        Transactions
+    </div>
+
+    <div class="panel-body">      
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Transaction ID</td>
+                    <td>Amount</td>
+                    <td>Merchant Name</td>
+                    <td>Transaction Date</td>
+                    <td>Category</td>
+                    <td>Currency</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="transaction in vm.transactions">
+                    <td>{{transaction.id}}</td>
+                    <td>{{transaction.amount}}</td>
+                    <td>{{transaction.merchantName}}</td>
+                    <td>{{transaction.transactionDate}}</td>
+                    <td>{{transaction.categoryId}}</td>
+                    <td>{{transaction.currencyId}}</td>
+                    <td><a ui-sref="transactionEdit({reportId:transaction.expenseReportId, transactionId:transaction.id})" class="glyphicon glyphicon-pencil"></a></td>
+                    <td><a ui-sref="transactionDelete({reportId:transaction.expenseReportId, transactionId:transaction.id})" class="glyphicon glyphicon-trash"></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

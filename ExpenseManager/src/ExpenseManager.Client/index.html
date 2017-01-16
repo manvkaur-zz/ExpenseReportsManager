@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Expense Manager</title>
+
+    <!-- Style sheets -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/app.css" rel="stylesheet" />
+
+    <!-- Library Scripts -->
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+    
+    <!-- Application Script -->
+    <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/common.services.js"></script>
+    <script src="common/expenseResource.js"></script>
+
+    <!-- Expense Controllers -->
+    <script src="app/expenseReports/expenseListCtrl.js"></script>
+    <script src="app/expenseReports/expenseEditCtrl.js"></script>
+    <script src="app/expenseReports/expenseAddCtrl.js"></script>
+    <script src="app/expenseReports/transactionListCtrl.js"></script>
+    <script src="app/expenseReports/transactionEditCtrl.js"></script>
+    <script src="app/expenseReports/transactionDeleteCtrl.js"></script>
+    <script src="app/expenseReports/transactionAddCtrl.js"></script>
+</head>
+
+<body ng-app="expenseManager">
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <a class="navbar-brand"
+               ui-sref="home">Expense Manager</a>
+            <div class="navbar-header">
+                <button type="button"
+                        class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="expenseReportsList">Expense Report List</a></li>
+                    <li>
+                        <a ui-sref="expenseReportAdd">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            Add Report
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+</body>
+
+</html>

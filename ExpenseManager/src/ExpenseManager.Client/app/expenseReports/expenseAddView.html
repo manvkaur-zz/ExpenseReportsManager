@@ -1,0 +1,79 @@
+﻿<form class="form-horizontal"
+      name="expenseForm"
+      novalidate>
+    <fieldset>
+        <legend>Expense Report</legend>
+        <div class="form-group"
+             ng-class="{'has-error':expenseForm.inputReportPurpose.$invalid &&
+                                    expenseForm.inputReportPurpose.$dirty}">
+            <label class="col-md-2 control-label"
+                   for="inputReportPurpose">Purpose</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputReportPurpose"
+                       name="inputReportPurpose"
+                       type="text"
+                       placeholder="Report Purpose (required)"
+                       ng-model="vm.report.purpose"
+                       required
+                       ng-minlength="4"
+                       ng-maxlength="25" />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="expenseForm.inputReportPurpose.$error.required">
+                    Report name is required.
+                </span>
+                <span ng-show="expenseForm.inputReportPurpose.$error.minlength">
+                    Report name must be at least 4 characters in length.
+                </span>
+                <span ng-show="expenseForm.inputReportPurpose.$error.maxlength">
+                    Report name cannot exceed 12 characters in length.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="inputSubmitDate">Submit Date</label>
+
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input class="form-control"
+                           id="inputSubmitDate"
+                           type="text"
+                           datepicker-popup="MMM dd, yyyy "
+                           is-open="vm.opened"
+                           ng-model="vm.report.submitDate" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default"
+                                ng-click="vm.open($event)">
+                            <i class="glyphicon glyphicon-calendar" />
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px;margin-right:10px"
+                            ng-click="vm.submit()"
+                            ng-disabled="expenseForm.$invalid">
+                        Save
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-show="vm.message">
+            <div class="col-md-6">
+                <pre style="font: inherit">{{vm.message }}</pre>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
